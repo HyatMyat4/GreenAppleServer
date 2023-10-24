@@ -23,7 +23,7 @@ type SignedDetails struct {
 
 var SECRET_KEY string = os.Getenv("SECRET_KEY")
 
-func GenerateAllTokens(email string, name string, user_id string) (access_Token string, err error) {
+func GenerateAllTokens(email string, name string, user_id string) (access_Token string) {
 	access_token := &SignedDetails{
 		email:   email,
 		name:    name,
@@ -40,7 +40,7 @@ func GenerateAllTokens(email string, name string, user_id string) (access_Token 
 		return
 	}
 
-	return token, err
+	return token
 
 }
 

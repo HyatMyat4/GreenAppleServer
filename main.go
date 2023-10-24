@@ -16,11 +16,12 @@ func main() {
 	}
 
 	config := cors.DefaultConfig()
-	config.AllowOrigins = []string{"*"} // Replace with your frontend application's domain
+	config.AllowOrigins = []string{"http://localhost:3000"}
+	config.AllowMethods = []string{"GET, POST, PUT, DELETE, OPTIONS"}
 	config.AllowHeaders = []string{"Origin", "Content-Length", "Content-Type", "Authorization"}
-
+	config.AllowCredentials = true // Allow credentials such as cookies
+	config.AllowWildcard = true
 	router := gin.New()
-
 	router.Use(cors.New(config))
 
 	router.Use(gin.Logger())

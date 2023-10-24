@@ -13,7 +13,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
-func Get_user() gin.HandlerFunc {
+func Get_email_verify() gin.HandlerFunc {
 	return func(req *gin.Context) {
 
 		userId := req.Param("user_id")
@@ -32,7 +32,7 @@ func Get_user() gin.HandlerFunc {
 			return
 		}
 
-		req.JSON(http.StatusOK, users)
+		req.JSON(http.StatusOK, users.Email_verified)
 
 	}
 
